@@ -18,11 +18,12 @@ export const LoginContainer = styled.div`
 export const LeftContainer = styled.div`
   height: 100vh;
   width: 47vw;
+  position: relative;
   background: linear-gradient(
     180deg,
-    ${(props) => props.theme.blue[50]} 0vh,
-    ${(props) => props.theme.blue[400]} 0.01vh,
-    ${(props) => props.theme.blue[800]} 100vh
+    ${(props) => props.theme.blue[50]} 0%,
+    ${(props) => props.theme.blue[400]} 0.01%,
+    ${(props) => props.theme.blue[800]} 100%
   );
 
   @media (max-width: 768px) {
@@ -49,7 +50,6 @@ export const LeftContentContainer = styled.div`
   img {
     width: 60vw;
     height: 65vh;
-    margin-top: 3.375rem;
     margin-bottom: 8.8125rem;
   }
 
@@ -63,14 +63,12 @@ export const LeftContentContainer = styled.div`
 
 export const LeftTextContentContainer = styled.div`
   padding: 0 3.125rem;
-  margin-bottom: 2.5625rem;
   display: flex;
   flex-direction: column;
   gap: 3.125rem;
-  margin-top: calc(0px - 8.8125rem - 3.125rem);
+  margin-top: calc(0px - 7rem - 3.125rem);
 
   #title {
-    gap: 0.625rem;
     font-size: 2.5rem;
     font-weight: 800;
     color: ${(props) => props.theme.slate[50]};
@@ -81,31 +79,25 @@ export const LeftTextContentContainer = styled.div`
     font-size: 1.75rem;
     font-weight: 400;
   }
+
+  @media (max-height: 407px) or (max-width: 407px) {
+    gap: 1rem;
+    #title {
+      font-size: 2rem;
+    }
+  }
 `
 
 export const RightContainer = styled.div`
-  height: 100vh;
   width: 53vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  margin-top: 2%;
 
   @media (max-width: 768px) {
     width: 100vw;
-    margin-top: calc(0px - 8.8125rem);
-  }
-
-  @media (max-width: 375px) {
-    margin-top: calc(0px - 3rem);
-  }
-
-  @media (max-width: 280px) {
-    margin-top: calc(0px - 2rem);
-  }
-
-  @media (max-width: 540px) and (min-height: 720px) {
-    margin-top: calc(0px - 3rem);
   }
 `
 
