@@ -4,6 +4,15 @@ export const LoginContainer = styled.div`
   align-items: center;
   display: flex;
   position: fixed;
+
+  @media (max-width: 768px) {
+    html {
+      font-size: 87.5%;
+    }
+
+    flex-direction: column;
+    position: relative;
+  }
 `
 
 export const LeftContainer = styled.div`
@@ -15,6 +24,20 @@ export const LeftContainer = styled.div`
     ${(props) => props.theme.blue[400]} 0.01vh,
     ${(props) => props.theme.blue[800]} 100vh
   );
+
+  @media (max-width: 768px) {
+    width: 100vw;
+    height: 85vh;
+  }
+
+  @media (max-width: 375px) {
+    width: 100vw;
+    height: 90vh;
+  }
+
+  @media (max-width: 280px) {
+    height: 95vh;
+  }
 `
 
 export const LeftContentContainer = styled.div`
@@ -24,10 +47,17 @@ export const LeftContentContainer = styled.div`
   text-align: center;
 
   img {
-    width: 100vw;
-    height: 44.0625rem;
+    width: 60vw;
+    height: 65vh;
     margin-top: 3.375rem;
     margin-bottom: 8.8125rem;
+  }
+
+  @media (max-width: 768px) {
+    img {
+      width: 100vw;
+      margin-top: calc(0px - 4rem);
+    }
   }
 `
 
@@ -60,14 +90,35 @@ export const RightContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   text-align: center;
+
+  @media (max-width: 768px) {
+    width: 100vw;
+    margin-top: calc(0px - 8.8125rem);
+  }
+
+  @media (max-width: 375px) {
+    margin-top: calc(0px - 3rem);
+  }
+
+  @media (max-width: 280px) {
+    margin-top: calc(0px - 2rem);
+  }
+
+  @media (max-width: 540px) and (min-height: 720px) {
+    margin-top: calc(0px - 3rem);
+  }
 `
 
 export const BaseContent = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 6rem;
+  margin-left: 12%;
   margin-right: 5.25rem;
   align-items: flex-start;
+
+  @media (max-width: 768px) {
+    margin-left: 15%;
+  }
 `
 
 export const RightTextLoginContentContainer = styled(BaseContent)`
@@ -81,6 +132,7 @@ export const RightTextLoginContentContainer = styled(BaseContent)`
   }
 
   #login-content {
+    text-align: left;
     color: ${(props) => props.theme.gray[400]};
     font-size: 1.375rem;
     line-height: 1.375rem;
@@ -106,11 +158,16 @@ export const BaseInput = styled.input`
   background: transparent;
   border: 1px solid ${(props) => props.theme.slate[300]};
   border-radius: 5px;
-  width: 36.4375rem;
+  width: 40vw;
+  max-width: 583px;
   height: 3.3825rem;
   padding: 1.25rem;
   font-weight: 300;
   font-size: 1.25rem;
+
+  @media (max-width: 768px) {
+    width: 70vw;
+  }
 `
 
 export const EmailInput = styled(BaseInput)``
@@ -124,13 +181,24 @@ export const ButtonContainer = styled.div`
 
   button {
     border: 0;
-    width: 36.4375rem;
+    width: 40vw;
+    max-width: 583px;
     height: 3.3825rem;
     background: ${(props) => props.theme.blue[500]};
     color: ${(props) => props.theme.slate[50]};
     font-size: 1.25rem;
     font-weight: 500;
     border-radius: 20px;
+
+    :hover {
+      cursor: pointer;
+      transition: 5ms;
+      background: ${(props) => props.theme.blue[700]};
+    }
+
+    @media (max-width: 768px) {
+      width: 70vw;
+    }
   }
 
   a {
@@ -138,5 +206,6 @@ export const ButtonContainer = styled.div`
     font-size: 1.25rem;
     font-weight: 400;
     margin-top: 1.25rem;
+    text-decoration: none;
   }
 `
