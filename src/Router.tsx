@@ -8,11 +8,11 @@ export function Router() {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
-      <Route path='/home' element={<DefaultLayout />}>
-        <Route path='/home' element={<Home />} />
+      <Route path="/home" element={<DefaultLayout />}>
+        <Route path="/home" element={<Home />} />
       </Route>
-      <Route path='/pacientes' element={<DefaultLayout />}>
-        <Route path='/pacientes' element={<Paciente />} />
+      <Route path="/pacientes" element={<DefaultLayout />}>
+        <Route path="/pacientes" element={<Paciente />} />
       </Route>
     </Routes>
   )

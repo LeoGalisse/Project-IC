@@ -1,38 +1,40 @@
-import { ChartContainer, HomeContainer, PacientesContainer, TutorialContainer } from "./styles"
-import tutorialLogo from "../../assets/tutorial-image.svg"
-import { NavLink } from "react-router-dom"
+import {
+  ChartContainer,
+  HomeContainer,
+  PacientesContainer,
+  TutorialContainer,
+} from './styles'
+import tutorialLogo from '../../assets/tutorial-image.svg'
+import { NavLink } from 'react-router-dom'
 import { formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
-import { DotsThreeVertical } from "phosphor-react"
-import { Dropdown } from "../../components/Dropdown"
+import { Dropdown } from '../../components/Dropdown'
 
 interface PacienteProps {
-  id: number;
-  name: string;
-  createdAt: Date;
-  avatarUrl: string;
+  id: number
+  name: string
+  createdAt: Date
+  avatarUrl: string
 }
 
 const pacientes = [
   {
     id: 1,
-    name: "Leonardo Galisse",
+    name: 'Leonardo Galisse',
     createdAt: new Date(),
-    avatarUrl:
-      "https://github.com/leogalisse.png",
+    avatarUrl: 'https://github.com/leogalisse.png',
   },
   {
     id: 2,
-    name: "Rodrigo Fraga",
+    name: 'Rodrigo Fraga',
     createdAt: new Date(),
-    avatarUrl:
-      "https://github.com/Digao791.png",
+    avatarUrl: 'https://github.com/Digao791.png',
   },
   {
     id: 3,
-    name: "Bárbara Barbieri",
+    name: 'Bárbara Barbieri',
     createdAt: new Date(),
-    avatarUrl: "https://github.com/barbarabarbieri.png",
+    avatarUrl: 'https://github.com/barbarabarbieri.png',
   },
 ]
 
@@ -42,7 +44,7 @@ export function Home() {
       <div className="pad">
         <div>
           <TutorialContainer>
-            <img src={tutorialLogo} />
+            <img src={tutorialLogo} alt="" />
             <span>Quer aprender a como usar nossa aplicação?</span>
             <nav>
               <NavLink to="/" title="tutorial">
@@ -69,10 +71,12 @@ export function Home() {
                   </div>
                   <div className="informacaoPaciente">
                     <span>{paciente.name}</span>
-                    <span id="time">{formatDistanceToNow(new Date(paciente.createdAt), {
-                      addSuffix: true,
-                      locale: ptBR,
-                    })}</span>
+                    <span id="time">
+                      {formatDistanceToNow(new Date(paciente.createdAt), {
+                        addSuffix: true,
+                        locale: ptBR,
+                      })}
+                    </span>
                   </div>
                   <Dropdown />
                 </div>

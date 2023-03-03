@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
   display: flex;
@@ -46,7 +46,7 @@ export const AvatarContainer = styled.div`
 
   margin-right: 1rem;
   gap: 0.5rem;
-  
+
   #notificacao {
     color: ${(props) => props.theme.slate[50]};
   }
