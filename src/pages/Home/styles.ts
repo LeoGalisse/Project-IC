@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const HomeContainer = styled.div`
-  background: ${props => props.theme.gray[200]};
+  background: ${(props) => props.theme.gray[200]};
   height: 100vh;
   width: 80vw;
   display: flex;
@@ -44,14 +44,14 @@ export const TutorialContainer = styled.div`
     padding: 0.5rem 1rem 0.5rem 1rem;
     margin-bottom: 3%;
 
-    background: ${props => props.theme.blue[500]};
+    background: ${(props) => props.theme.blue[500]};
 
     a {
       text-decoration: none;
-      color: ${props => props.theme.slate[50]};
+      color: ${(props) => props.theme.slate[50]};
       font-size: 1rem;
       font-weight: 500;
-    }    
+    }
   }
 
   nav :hover {
@@ -95,7 +95,7 @@ export const PacientesContainer = styled.div`
       border: 0;
       font-weight: 500;
       font-size: 0.8rem;
-      padding: 1%
+      padding: 1%;
     }
   }
 
@@ -118,7 +118,7 @@ export const PacientesContainer = styled.div`
       align-items: center;
 
       border-radius: 10px;
-      box-shadow: 0px 32px 120px ${props => props.theme.gray[200]};
+      box-shadow: 0px 32px 120px ${(props) => props.theme.gray[200]};
       margin-bottom: 5%;
     }
 
@@ -129,7 +129,7 @@ export const PacientesContainer = styled.div`
       margin-left: -30px;
 
       #time {
-        color: ${props => props.theme.gray[400]};
+        color: ${(props) => props.theme.gray[400]};
       }
     }
 

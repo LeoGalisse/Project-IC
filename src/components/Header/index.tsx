@@ -1,5 +1,5 @@
-import { Bell, MagnifyingGlass } from "phosphor-react";
-import { AvatarContainer, HeaderContainer, InputContainer } from "./styles";
+import { Bell, MagnifyingGlass } from 'phosphor-react'
+import { AvatarContainer, HeaderContainer, InputContainer } from './styles'
 
 export function Header() {
   return (

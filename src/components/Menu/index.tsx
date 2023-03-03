@@ -1,4 +1,10 @@
-import { ChartPieSlice, Gear, House, PersonSimpleRun, Users } from 'phosphor-react'
+import {
+  ChartPieSlice,
+  Gear,
+  House,
+  PersonSimpleRun,
+  Users,
+} from 'phosphor-react'
 import { NavLink } from 'react-router-dom'
 import logo from '../../assets/Logo-Inatel.svg'
 import { ItemsContainer, MenuContainer } from './styles'
