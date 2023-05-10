@@ -136,7 +136,7 @@ export const RightLoginContentContainer = styled(BaseContent)`
   margin-top: 4.5625rem;
 `
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
