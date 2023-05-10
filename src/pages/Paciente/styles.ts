@@ -25,10 +25,11 @@ export const PacienteContainer = styled.div`
 
 export const InfoContainer = styled.div`
   display: flex;
-  justify-content: end;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8vw;
 
   .title {
-    margin-top: 2.8%;
     font-weight: 700;
   }
 `
@@ -49,7 +50,7 @@ export const InteractiveContainer = styled.div`
     background: ${(props) => props.theme.blue[500]};
     padding: 0 2% 0 5%;
     height: 6vh;
-    width: 19vw;
+    width: 15vw;
     border-radius: 10px;
     margin-right: 15%;
 
@@ -65,12 +66,6 @@ export const InteractiveContainer = styled.div`
 
     padding: 5% 0 5% 0;
   }
-`
-
-export const SelectContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  height: 4vh;
 `
 
 export const PacienteCardContainer = styled.div`

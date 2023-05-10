@@ -1,37 +1,47 @@
 import { Plus } from 'phosphor-react'
-import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import {
   InfoContainer,
   InteractiveContainer,
   PacienteCardContainer,
   PacienteContainer,
-  SelectContainer,
 } from './styles'
+import axios from 'axios'
+import Cookies from 'universal-cookie'
+import { useQuery } from '@tanstack/react-query'
 
 interface PacienteProps {
-  id: number
-  name: string
-  createdAt: Date
-  avatarUrl: string
-  numberOfSessions: number
-  lastSession: string
-  problema: string
+  id: string
+  firstName: string
+  lastName: string
+  gender: string
+  age: number
+  ifChildWasItPremature?: string
+  ifChildHadIncurrenceDuringPregnancy?: string
+  ifChildHowWasChildbirth?: string
+  city: string
+  state: string
+  cep: string
+  tel: string
+  createdAt: string
 }
 
 export function Paciente() {
-  const [filter, setFilter] = useState('')
-  const [pacientes] = useState<PacienteProps[]>([])
+  const cookies = new Cookies()
 
-  useEffect(() => { }, [filter])
+  const { data: pacientes } = useQuery<PacienteProps[]>(
+    ['pacientes'],
+    async () => {
+      const response = await axios.get('http://localhost:3000/api/pacient', {
+        headers: {
+          Authorization: `Bearer ${cookies.get('jwt')}`,
+        },
+      })
 
-  const filteredPacients = pacientes.filter((e) => {
-    if (e.problema.includes(filter)) {
-      return e
-    } else if (filter === 'Sem filtro') {
-      return e
-    } else return null
-  })
+      console.log(response)
+      return response.data
+    },
+  )
 
   return (
     <PacienteContainer>
@@ -50,21 +60,10 @@ export function Paciente() {
                   </div>
                 </NavLink>
               </nav>
-              <SelectContainer>
-                <select
-                  onChange={(e) => setFilter(e.target.value)}
-                  value={filter}
-                >
-                  <option>Sem filtro</option>
-                  <option>Membro quebrado</option>
-                  <option>Membro fraturado</option>
-                  <option>Mobilidade reduzida</option>
-                </select>
-              </SelectContainer>
             </InteractiveContainer>
           </InfoContainer>
           <PacienteCardContainer>
-            {filteredPacients.map((paciente: PacienteProps) => {
+            {pacientes?.map((paciente: PacienteProps) => {
               return (
                 <nav key={paciente.id}>
                   <NavLink
@@ -72,24 +71,9 @@ export function Paciente() {
                     title="paciente"
                     className="dataCard"
                   >
-                    <div>
-                      <img src={paciente.avatarUrl} alt={paciente.name} />
-                    </div>
                     <div className="nomePaciente">
                       <span id="tituloSessao">Nome</span>
-                      <span>{paciente.name}</span>
-                    </div>
-                    <div className="numeroSessoes">
-                      <span id="tituloSessao">Número de sessões</span>
-                      <span>{paciente.numberOfSessions}</span>
-                    </div>
-                    <div className="ultimaSessao">
-                      <span id="tituloSessao">Última sessão</span>
-                      <span>{paciente.lastSession}</span>
-                    </div>
-                    <div className="problema">
-                      <span id="tituloSessao">Class. problema</span>
-                      <span>{paciente.problema}</span>
+                      <span>{paciente.firstName}</span>
                     </div>
                   </NavLink>
                 </nav>
