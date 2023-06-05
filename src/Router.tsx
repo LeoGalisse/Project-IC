@@ -4,6 +4,10 @@ import { Login } from './pages/Login'
 import { DefaultLayout } from './layouts/DefaultLayout'
 import { Paciente } from './pages/Paciente'
 import { AddPaciente } from './pages/Paciente/AddPaciente'
+import { Formulario } from './pages/Formulario'
+import { AddAnamnese } from './pages/Formulario/AddAnamnese'
+import { AddExameFisico } from './pages/Formulario/AddExameFisico'
+import { Diagnosticos } from './pages/Formulario/Diagnostico'
 
 export function Router() {
   return (
@@ -15,6 +19,18 @@ export function Router() {
       <Route path="/pacientes" element={<DefaultLayout />}>
         <Route path="/pacientes" element={<Paciente />} />
         <Route path="/pacientes/adicionar" element={<AddPaciente />} />
+      </Route>
+      <Route path="/formularios" element={<DefaultLayout />}>
+        <Route path="/formularios" element={<Formulario />} />
+        <Route path="/formularios/anamnese" element={<AddAnamnese />} />
+        <Route
+          path="/formularios/anamnese/examefisico"
+          element={<AddExameFisico />}
+        />
+        <Route
+          path="/formularios/anamnese/examefisico/diagnostico"
+          element={<Diagnosticos />}
+        />
       </Route>
     </Routes>
   )

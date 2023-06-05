@@ -31,7 +31,7 @@ export function Menu() {
             </NavLink>
           </div>
           <div>
-            <NavLink to="/form" title="form">
+            <NavLink to="/formularios" title="form">
               <ChartPieSlice size={24} />
               <div className="title">Formulário</div>
             </NavLink>
